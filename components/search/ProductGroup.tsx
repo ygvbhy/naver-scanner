@@ -41,15 +41,25 @@ export default function ProductGroup({ group }: ProductGroupProps) {
             {stripHtmlTags(group.title)}
           </h3>
           <div className="mt-auto">
-            <div className="flex items-baseline justify-between gap-3">
-              <span className="text-3xl font-extrabold tracking-tight text-blue-600 transition-colors duration-200 group-hover:text-blue-700">
-                {formatPrice(group.minPrice)}
-              </span>
-              {hasMultipleSellers && (
-                <span className="rounded-full bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-700">
-                  {group.items.length}개 판매처
-                </span>
-              )}
+            <div className="space-y-2">
+              <div className="flex items-baseline justify-between gap-3">
+                <div className="flex flex-col">
+                  <span className="text-2xl font-extrabold tracking-tight text-blue-600 transition-colors duration-200 group-hover:text-blue-700">
+                    {formatPrice(group.minPrice)}
+                  </span>
+                  <span className="text-xs font-medium text-gray-500 mt-0.5">
+                    비교 기준 가격
+                  </span>
+                </div>
+                {hasMultipleSellers && (
+                  <span className="rounded-full bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-700">
+                    {group.items.length}개 판매처
+                  </span>
+                )}
+              </div>
+              <div className="text-xs text-gray-500">
+                정확한 가격은 상세에서 확인하세요
+              </div>
             </div>
           </div>
         </div>
@@ -84,8 +94,8 @@ export default function ProductGroup({ group }: ProductGroupProps) {
                   <span className="font-medium text-gray-700 transition-colors duration-200 group-hover/item:text-gray-900">
                     {item.mallName}
                   </span>
-                  <span className="font-bold text-blue-600 transition-all duration-200 group-hover/item:text-blue-700">
-                    {formatPrice(item.lprice)}
+                  <span className="text-xs font-medium text-gray-500 transition-colors duration-200 group-hover/item:text-blue-600">
+                    가격 확인 →
                   </span>
                 </a>
               ))}

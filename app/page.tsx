@@ -180,11 +180,20 @@ export default function Home() {
               onReset={handleFilterReset}
               hasActiveFilters={hasActiveFilters}
             />
-            <div className="rounded-lg border border-amber-200/60 bg-amber-50/80 px-4 py-2.5 backdrop-blur-sm">
-              <p className="text-xs leading-relaxed text-amber-900/90">
-                ⚠️ 네이버 쇼핑 기준 데이터이며, 실제 판매가와 차이가 있을 수
-                있습니다. 배송비, 옵션, 프로모션 할인 등은 반영되지 않았습니다.
-              </p>
+            <div className="space-y-2">
+              <div className="rounded-lg border border-blue-200/60 bg-blue-50/80 px-4 py-2.5 backdrop-blur-sm">
+                <p className="text-xs leading-relaxed text-blue-900/90">
+                  💡 판매처별 정확한 가격은 링크를 클릭하여 네이버 쇼핑에서
+                  확인하세요. 표시된 최저가는 비교 기준 가격입니다.
+                </p>
+              </div>
+              <div className="rounded-lg border border-amber-200/60 bg-amber-50/80 px-4 py-2.5 backdrop-blur-sm">
+                <p className="text-xs leading-relaxed text-amber-900/90">
+                  ⚠️ 네이버 쇼핑 기준 데이터이며, 실제 판매가와 차이가 있을 수
+                  있습니다. 배송비, 옵션, 프로모션 할인 등은 반영되지
+                  않았습니다.
+                </p>
+              </div>
             </div>
           </div>
         )}

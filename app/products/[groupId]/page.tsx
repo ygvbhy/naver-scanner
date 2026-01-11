@@ -229,8 +229,8 @@ export default function ProductDetailPage() {
                         </div>
                       </div>
                       <div className="ml-6 flex-shrink-0">
-                        <span className="text-2xl font-extrabold tracking-tight text-blue-600 transition-all duration-200 group-hover/item:text-blue-700">
-                          {formatPrice(item.lprice)}
+                        <span className="text-sm font-semibold text-blue-600 transition-all duration-200 group-hover/item:text-blue-700">
+                          가격 확인 →
                         </span>
                       </div>
                     </a>
@@ -240,11 +240,19 @@ export default function ProductDetailPage() {
             </div>
 
             {/* 데이터 신뢰성 안내 */}
-            <div className="mt-6 rounded-xl border border-amber-200/60 bg-amber-50/80 px-4 py-3.5 backdrop-blur-sm">
-              <p className="text-xs leading-relaxed text-amber-900/90">
-                ⚠️ 네이버 쇼핑 기준 데이터이며, 실제 판매가와 차이가 있을 수
-                있습니다. 배송비, 옵션, 프로모션 할인 등은 반영되지 않았습니다.
-              </p>
+            <div className="mt-6 space-y-3">
+              <div className="rounded-xl border border-blue-200/60 bg-blue-50/80 px-4 py-3.5 backdrop-blur-sm">
+                <p className="text-xs leading-relaxed text-blue-900/90">
+                  💡 판매처별 정확한 가격은 링크를 클릭하여 네이버 쇼핑에서 확인하세요.
+                  표시된 최저가는 비교 기준 가격이며, 실제 판매가와 다를 수 있습니다.
+                </p>
+              </div>
+              <div className="rounded-xl border border-amber-200/60 bg-amber-50/80 px-4 py-3.5 backdrop-blur-sm">
+                <p className="text-xs leading-relaxed text-amber-900/90">
+                  ⚠️ 네이버 쇼핑 기준 데이터이며, 실제 판매가와 차이가 있을 수
+                  있습니다. 배송비, 옵션, 프로모션 할인 등은 반영되지 않았습니다.
+                </p>
+              </div>
             </div>
           </div>
         </div>
