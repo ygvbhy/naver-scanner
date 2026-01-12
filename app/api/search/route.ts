@@ -14,8 +14,8 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  const clientId = process.env.NAVER_CLIENT_ID;
-  const clientSecret = process.env.NAVER_CLIENT_SECRET;
+  const clientId = process.env.NEXT_PUBLIC_NAVER_CLIENT_ID;
+  const clientSecret = process.env.NEXT_PUBLIC_NAVER_CLIENT_SECRET;
 
   if (!clientId || !clientSecret) {
     return NextResponse.json(
@@ -46,7 +46,9 @@ export async function GET(request: NextRequest) {
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       return NextResponse.json(
-        { error: errorData.errorMessage || `API 요청 실패: ${response.status}` },
+        {
+          error: errorData.errorMessage || `API 요청 실패: ${response.status}`,
+        },
         { status: response.status }
       );
     }
