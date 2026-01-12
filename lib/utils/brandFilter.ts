@@ -1,4 +1,5 @@
-import type { NaverShopItem, ProductGroup } from './grouping';
+import type { ProductGroup } from './grouping';
+import type { NaverShopItem } from '@/types/naver';
 
 /**
  * 검색 결과에서 고유한 브랜드 목록 추출
@@ -40,9 +41,7 @@ export function filterByBrands(
     return group.items.some((item) => {
       const itemBrand = item.brand?.trim() || '';
       const itemMaker = item.maker?.trim() || '';
-      return (
-        selectedBrands.has(itemBrand) || selectedBrands.has(itemMaker)
-      );
+      return selectedBrands.has(itemBrand) || selectedBrands.has(itemMaker);
     });
   });
 }
