@@ -49,11 +49,14 @@ export function groupProductsByProductId(
     const representative = sortedItems.reduce((best, current) => {
       const bestTitle = best.title.replace(/<[^>]*>/g, '').trim();
       const currentTitle = current.title.replace(/<[^>]*>/g, '').trim();
-      
+
       // HTML 태그가 적고, 길이가 적당한 것을 선호
-      const bestScore = bestTitle.length + (best.title.match(/<[^>]*>/g)?.length || 0) * 10;
-      const currentScore = currentTitle.length + (current.title.match(/<[^>]*>/g)?.length || 0) * 10;
-      
+      const bestScore =
+        bestTitle.length + (best.title.match(/<[^>]*>/g)?.length || 0) * 10;
+      const currentScore =
+        currentTitle.length +
+        (current.title.match(/<[^>]*>/g)?.length || 0) * 10;
+
       return currentScore < bestScore ? current : best;
     }, sortedItems[0]);
 
