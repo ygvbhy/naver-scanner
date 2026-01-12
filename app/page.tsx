@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense, useMemo } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import SearchInput from '@/components/ui/SearchInput';
@@ -16,9 +16,9 @@ import { useInfiniteScroll } from '@/hooks/useInfiniteScroll';
 import FilterPanel from '@/components/search/FilterPanel';
 import Link from 'next/link';
 import type { NaverShopItem } from '@/types/naver';
-import { useMemo } from 'react';
 
-export default function Home() {
+// useSearchParams를 사용하는 컴포넌트 분리
+function SearchPageContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [query, setQuery] = useState<string>('');
@@ -272,5 +272,29 @@ export default function Home() {
         )}
       </div>
     </main>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense
+      fallback={
+        <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+          <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+            <div className="mb-10">
+              <h1 className="mb-2 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+                최저가 검색
+              </h1>
+              <p className="text-lg text-gray-600">
+                상품명을 입력하여 오픈마켓 최저가를 확인하세요
+              </p>
+            </div>
+            <LoadingSpinner />
+          </div>
+        </main>
+      }
+    >
+      <SearchPageContent />
+    </Suspense>
   );
 }
